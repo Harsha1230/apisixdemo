@@ -22,3 +22,19 @@ spec:
     backends:
     - serviceName: functionapp-service
       servicePort: 80
+---
+apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: azurefunctionsroutespartial
+spec:
+  http:
+  - name: params
+    match:
+      hosts:
+      - local.functions.params
+      paths:
+      - "/apisixdemo/getweather/getweatherwithmultiparam"
+    backends:
+    - serviceName: functionapp-service
+      servicePort: 80
