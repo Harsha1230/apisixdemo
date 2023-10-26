@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "apisixdemo": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7146"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "httpPort": 34223,
+      "useSSL": false
+    }
+  }
+}
