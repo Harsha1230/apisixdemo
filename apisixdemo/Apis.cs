@@ -15,7 +15,7 @@ namespace apisixdemo
         }
 
         [Function("GetWeather")]
-        public HttpResponseData GetWeather([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather")] HttpRequestData req)
+        public HttpResponseData GetWeather([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "apisixdemo/getweather")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
