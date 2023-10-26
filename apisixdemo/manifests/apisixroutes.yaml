@@ -34,7 +34,7 @@ spec:
       hosts:
       - local.functions.params
       paths:
-      - "/*"
+      - "/api/apisixdemo/getweather/getweatherwithmultiparam"
     backends:
     - serviceName: functionapp-service
       servicePort: 80
