@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: functionapp
-        image: 16691a0440/apisixdemo:v1.0.1
+        image: 16691a0440/apisixdemo:v1.0.2
         ports:
         - containerPort: 80
