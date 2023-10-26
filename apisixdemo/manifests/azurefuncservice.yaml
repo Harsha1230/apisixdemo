@@ -9,3 +9,16 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: functionappserviceloadbalancer
+spec:
+  type: LoadBalancer
+  selector:
+    app: function
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
