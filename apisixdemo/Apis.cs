@@ -15,14 +15,53 @@ namespace apisixdemo
         }
 
         [Function("GetWeather")]
-        public HttpResponseData GetWeather([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "ApisixDemo/GetWeather")] HttpRequestData req)
+        public HttpResponseData GetWeather([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
 
-            response.WriteString("Welcome to Azure Functions!");
+            response.WriteString("Welcome to Azure Functions! route is apisixdemo/getweather");
+
+            return response;
+        }
+
+        [Function("GetAnotherWeather")]
+        public HttpResponseData GetAnotherWeather([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather/param")] HttpRequestData req, string test)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            response.WriteString($"Welcome to Azure Functions! {test} route is apisixdemo/getweather/param");
+
+            return response;
+        }
+
+        [Function("GetWeatherWithPathParams")]
+        public HttpResponseData GetWeatherWithPathParams([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather/{id}")] HttpRequestData req, int id)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            response.WriteString($"Welcome to Azure Functions! {id} route is apisixdemo/getweather/id");
+
+            return response;
+        }
+
+        [Function("GetWeatherWithMultiParam")]
+        public HttpResponseData GetWeatherWithMultiParam([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather/getweatherwithmultiparam")] HttpRequestData req)
+        {
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+            response.WriteString("Welcome to Azure Functions! route is apisixdemo/getweather/getweatherwithmultiparam");
 
             return response;
         }
