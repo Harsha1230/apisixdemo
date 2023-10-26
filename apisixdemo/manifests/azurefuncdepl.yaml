@@ -1,0 +1,21 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: functionappdepl
+  labels:
+    app: function
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: function
+  template:
+    metadata:
+      labels:
+        app: function
+    spec:
+      containers:
+      - name: functionapp
+        image: 16691a0440/apisixdemo:1.0
+        ports:
+        - containerPort: 80

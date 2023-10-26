@@ -1,0 +1,34 @@
+﻿apiVersion: apisix.apache.org/v2
+kind: ApisixRoute
+metadata:
+  name: nginx-route
+spec:
+  http:
+  - name: noparam
+    match:
+      hosts:
+      - local.functions.noparam
+      paths:
+      - "/apisixdemo/getweather"
+    backends:
+    - serviceName: functionapp-service
+      servicePort: 80
+    
+  - name: param
+    match:
+      hosts:
+      - local.functions.params
+      paths:
+      - "/apisixdemo/getweather/*"
+    backends:
+    - serviceName: functionapp-service
+      servicePort: 80
+  - name: all
+    match:
+      hosts:
+      - local.functions.all
+      paths:
+      - "/apisixdemo/*"
+    backends:
+    - serviceName: functionapp-service
+      servicePort: 80
