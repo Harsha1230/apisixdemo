@@ -18,23 +18,17 @@ spec:
       hosts:
       - local.functions.params
       paths:
-      - "/apisixdemo/getweather/getweatherwithmultiparam"
+      - "/api/apisixdemo/getweather/getweatherwithmultiparam"
+      - "/api/apisixdemo/getweather/param"
     backends:
     - serviceName: functionapp-service
       servicePort: 80
----
-apiVersion: apisix.apache.org/v2
-kind: ApisixRoute
-metadata:
-  name: azurefunctionsroutespartial
-spec:
-  http:
-  - name: params
+  - name: onepath
     match:
       hosts:
-      - local.functions.params
+      - local.functions.path
       paths:
-      - "/api/apisixdemo/getweather/getweatherwithmultiparam"
+      - "/api/apisixdemo/getweather/{id}"
     backends:
     - serviceName: functionapp-service
       servicePort: 80
