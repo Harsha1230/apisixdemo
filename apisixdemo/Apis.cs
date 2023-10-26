@@ -28,7 +28,7 @@ namespace apisixdemo
         }
 
         [Function("GetAnotherWeather")]
-        public HttpResponseData GetAnotherWeather([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather/param")] HttpRequestData req, string test)
+        public HttpResponseData GetAnotherWeather([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "apisixdemo/getweather/param")] HttpRequestData req, string test)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -41,7 +41,7 @@ namespace apisixdemo
         }
 
         [Function("GetWeatherWithPathParams")]
-        public HttpResponseData GetWeatherWithPathParams([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather/{id}")] HttpRequestData req, int id)
+        public HttpResponseData GetWeatherWithPathParams([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "apisixdemo/getweather/{id}")] HttpRequestData req, int id)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
@@ -54,7 +54,7 @@ namespace apisixdemo
         }
 
         [Function("GetWeatherWithMultiParam")]
-        public HttpResponseData GetWeatherWithMultiParam([HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = "apisixdemo/getweather/getweatherwithmultiparam")] HttpRequestData req)
+        public HttpResponseData GetWeatherWithMultiParam([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = "apisixdemo/getweather/getweatherwithmultiparam")] HttpRequestData req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
