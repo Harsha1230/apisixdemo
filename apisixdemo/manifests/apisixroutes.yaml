@@ -1,7 +1,7 @@
 ﻿apiVersion: apisix.apache.org/v2
 kind: ApisixRoute
 metadata:
-  name: nginx-route
+  name: azurefunctionsroutes
 spec:
   http:
   - name: noparam
