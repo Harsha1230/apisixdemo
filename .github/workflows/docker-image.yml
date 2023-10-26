@@ -41,6 +41,6 @@ jobs:
             echo ${{ env.REGISTRY_PASSWORD }} | docker login -u ${{ env.REGISTRY_USERNAME }} --password-stdin
             
         - name: 'Build and push image'
-        - run: |
+          run: |
             docker build -f ${{ github.event.inputs.dockerfile_folder}}/Dockerfile -t ${{ env.REGISTRY_USERNAME }}/${{ github.event.inputs.image_name }}:${{ github.event.inputs.image_version }} ${{ github.event.inputs.dockerfile_folder}}
             docker push ${{ env.REGISTRY_USERNAME }}/${{ github.event.inputs.image_name }}:${{ github.event.inputs.image_version }}
