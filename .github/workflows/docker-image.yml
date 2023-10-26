@@ -1,0 +1,46 @@
+name: Function Image Build
+
+on:
+  workflow_dispatch: 
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+        default: dev
+        type: choice
+        options:
+          - dev
+          - prd 
+      image_name:
+        description: 'Image name'
+        required: true
+        default: 'apisixdemo'
+      image_version:
+        description: 'version'
+        required: true
+        default: 'v0.2.1'        
+      dockerfile_folder:
+        description: 'Docker file folder'
+        required: true
+        default: 'apisixdemo'        
+env:
+  REGISTRY_PASSWORD: ${{ secrets.dockerpassword }}
+  REGISTRY_USERNAME: 16691a0440
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        environment: ${{ github.event.inputs.environment }}
+
+        steps:
+        # checkout the repo
+        - name: 'Checkout GitHub Action'
+          uses: actions/checkout@v2
+        
+        - name: 'Docker login'
+          run: |
+            echo ${{ env.REGISTRY_PASSWORD }} | docker login -u ${{ env.REGISTRY_USERNAME }} --password-stdin
+            
+        - name: 'Build and push image'
+        - run: |
+            docker build -f ${{ github.event.inputs.dockerfile_folder}}/Dockerfile -t ${{ env.REGISTRY_USERNAME }}/${{ github.event.inputs.image_name }}:${{ github.event.inputs.image_version }} ${{ github.event.inputs.dockerfile_folder}}
+            docker push ${{ env.REGISTRY_USERNAME }}/${{ github.event.inputs.image_name }}:${{ github.event.inputs.image_version }}
