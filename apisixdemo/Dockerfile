@@ -10,10 +10,10 @@ FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 COPY --from=runtime3_1 /usr/share/dotnet/host /usr/share/dotnet/host
 COPY --from=runtime3_1 /usr/share/dotnet/shared /usr/share/dotnet/shared
 WORKDIR /src
-COPY ["apisixdemo/apisixdemo/apisixdemo.csproj", "apisixdemo/apisixdemo/"]
-RUN dotnet restore "apisixdemo/apisixdemo/apisixdemo.csproj"
+COPY ["apisixdemo.csproj", ""]
+RUN dotnet restore "apisixdemo.csproj"
 COPY . .
-WORKDIR "/src/apisixdemo/apisixdemo"
+WORKDIR "/src"
 RUN dotnet build "apisixdemo.csproj" -c Release -o /app/build
 
 FROM build AS publish
