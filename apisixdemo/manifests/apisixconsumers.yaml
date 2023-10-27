@@ -5,4 +5,5 @@ metadata:
 spec:
   authParameter:
     keyAuth:
-      value: harshavardhanreddynalavala
+      value:
+      - key: harshavardhanreddynalavala
