@@ -1,0 +1,8 @@
+﻿apiVersion: apisix.apache.org/v2
+kind: ApisixConsumer
+metadata:
+  name: consumer-harsha
+spec:
+  authParameter:
+    keyAuth:
+      key: "harshavardhanreddynalavala"   
