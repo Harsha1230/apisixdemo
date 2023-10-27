@@ -6,4 +6,4 @@ spec:
   authParameter:
     keyAuth:
       value:
-      - key: harshavardhanreddynalavala
+        key: harshavardhanreddynalavala
