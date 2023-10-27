@@ -13,6 +13,13 @@ spec:
     backends:
     - serviceName: functionapp-service
       servicePort: 80
+
+    plugins:
+    - name: key-auth
+      enable: true
+      config: 
+        header: "x-api-key"  
+        
   - name: param
     match:
       hosts:
