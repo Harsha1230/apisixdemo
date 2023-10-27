@@ -18,8 +18,14 @@ spec:
     - name: key-auth
       enable: true
       config: 
-        header: "x-api-key"  
-        
+        header: "x-api-key"
+    - name: consumer-restriction
+      enable: true
+      config:
+        whitelist:
+        - "dataservices_consumer_projects"   
+        - "dataservices_consumer_admin" 
+
   - name: param
     match:
       hosts:
