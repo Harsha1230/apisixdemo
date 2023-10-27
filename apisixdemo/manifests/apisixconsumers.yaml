@@ -4,4 +4,5 @@ metadata:
   name: consumer-harsha
 spec:
   authParameter:
-    keyAuth: harshavardhanreddynalavala
+    keyAuth:
+      value: 'harshavardhanreddynalavala'
