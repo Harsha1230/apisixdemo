@@ -23,8 +23,7 @@ spec:
       enable: true
       config:
         whitelist:
-        - "dataservices_consumer_projects"   
-        - "dataservices_consumer_admin" 
+        - "consumer-harsha-all"
 
   - name: param
     match:
@@ -36,12 +35,14 @@ spec:
     backends:
     - serviceName: functionapp-service
       servicePort: 80
-  - name: onepath
-    match:
-      hosts:
-      - local.functions.path
-      paths:
-      - "/api/apisixdemo/getweather/*"
-    backends:
-    - serviceName: functionapp-service
-      servicePort: 80
+
+    plugins:
+    - name: key-auth
+      enable: true
+      config: 
+        header: "x-api-key"
+    - name: consumer-restriction
+      enable: true
+      config:
+        whitelist:
+        - "consumer-harsha-param"
