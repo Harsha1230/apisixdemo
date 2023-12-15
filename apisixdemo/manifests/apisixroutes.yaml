@@ -23,7 +23,7 @@ spec:
           enable: true
           config:
             whitelist:
-              - ""
+              - "consumer-harsha-all"
 
     # - name: param
     #   match:
