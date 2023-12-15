@@ -25,13 +25,13 @@ spec:
             whitelist:
               - ""
 
-    - name: param
-      match:
-        hosts:
-          - local.functions.params
-        paths:
-          - "/api/apisixdemo/getweather/getweatherwithmultiparam"
-          - "/api/apisixdemo/getweather/param"
-      backends:
-        - serviceName: functionapp-service
-          servicePort: 80
+    # - name: param
+    #   match:
+    #     hosts:
+    #       - local.functions.params
+    #     paths:
+    #       - "/api/apisixdemo/getweather/getweatherwithmultiparam"
+    #       - "/api/apisixdemo/getweather/param"
+    #   backends:
+    #     - serviceName: functionapp-service
+    #       servicePort: 80
