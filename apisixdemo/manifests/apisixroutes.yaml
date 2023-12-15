@@ -4,34 +4,34 @@ metadata:
   name: azurefunctionsroutes
 spec:
   http:
-  - name: all
-    match:
-      hosts:
-      - local.functions.all
-      paths:
-      - "/*"
-    backends:
-    - serviceName: functionapp-service
-      servicePort: 80
+    - name: all
+      match:
+        hosts:
+          - local.functions.all
+        paths:
+          - "/*"
+      backends:
+        - serviceName: functionapp-service
+          servicePort: 80
 
-    plugins:
-    - name: key-auth
-      enable: true
-      config: 
-        header: "x-api-key"
-    - name: consumer-restriction
-      enable: true
-      config:
-        whitelist:
-        - "consumer-harsha-all"
+      plugins:
+        - name: key-auth
+          enable: true
+          config:
+            header: "x-api-key"
+        - name: consumer-restriction
+          enable: true
+          config:
+            whitelist:
+              - ""
 
-  - name: param
-    match:
-      hosts:
-      - local.functions.params
-      paths:
-      - "/api/apisixdemo/getweather/getweatherwithmultiparam"
-      - "/api/apisixdemo/getweather/param"
-    backends:
-    - serviceName: functionapp-service
-      servicePort: 80
+    - name: param
+      match:
+        hosts:
+          - local.functions.params
+        paths:
+          - "/api/apisixdemo/getweather/getweatherwithmultiparam"
+          - "/api/apisixdemo/getweather/param"
+      backends:
+        - serviceName: functionapp-service
+          servicePort: 80
