@@ -19,11 +19,11 @@ spec:
           enable: true
           config:
             header: "x-api-key"
-        # - name: consumer-restriction
-        #   enable: true
-        #   config:
-        #     whitelist:
-        #       - "harshavardhanreddynalavala"
+        - name: consumer-restriction
+          enable: true
+          config:
+            whitelist:
+              - consumerharshaall
 
     # - name: param
     #   match:

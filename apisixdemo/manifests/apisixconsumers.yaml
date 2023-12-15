@@ -1,7 +1,7 @@
 ﻿apiVersion: apisix.apache.org/v2
 kind: ApisixConsumer
 metadata:
-  name: consumer-harsha-param
+  name: consumerharshaparam
 spec:
   authParameter:
     keyAuth:
@@ -11,7 +11,7 @@ spec:
 apiVersion: apisix.apache.org/v2
 kind: ApisixConsumer
 metadata:
-  name: consumer-harsha-all
+  name: consumerharshaall
 spec:
   authParameter:
     keyAuth:
