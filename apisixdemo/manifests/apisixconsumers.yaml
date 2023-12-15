@@ -3,6 +3,7 @@ kind: ApisixConsumer
 metadata:
   name: consumerharshaparam
 spec:
+  userName: consumerharshaparam
   authParameter:
     keyAuth:
       value:
